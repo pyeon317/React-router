@@ -24,7 +24,7 @@ function App() {
   //숙제
   //이 데이터를 화면에 로드될때 axios로 select태그의 옵션으로 처리하세요.
   //https://raw.githubusercontent.com/yopy0817/data_example/master/by.json
-  const [data2, setData2] = useState([]);
+  const [data2, setData2] = useState([]); //배열이기 때문에 {}가 아닌 []을 쓴다.
 
   useEffect(() => {
     axios.get("https://raw.githubusercontent.com/yopy0817/data_example/master/by.json")
