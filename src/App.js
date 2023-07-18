@@ -1,16 +1,19 @@
-import A from "./component3/A";
-import B from "./component3/B";
-import { UserProvider } from "./context/ContextAPI2";
+import { Route, Routes } from "react-router-dom";
+import NewsHome from "./component2/NewsHome";
+
+import Header from "./layout/Header";
 
 
 function App() {
 
   return (
-    <UserProvider>
-      <A/>
-      <B/>
-    </UserProvider>
+    <Routes>
+      <Route element={<Header/> }>
+        <Route path="/" element={<NewsHome /> } />
+        <Route path="/:category" element={<NewsHome /> } />
+      </Route>
+    </Routes>
   )
-}
+};
 
 export default App;
