@@ -1,19 +1,24 @@
-import { Route, Routes } from "react-router-dom";
-import NewsHome from "./component2/NewsHome";
+import { useEffect } from "react"
 
-import Header from "./layout/Header";
 
 
 function App() {
 
-  return (
-    <Routes>
-      <Route element={<Header/> }>
-        <Route path="/" element={<NewsHome /> } />
-        <Route path="/:category" element={<NewsHome /> } />
-      </Route>
-    </Routes>
-  )
-};
+  useEffect(()=>{
+    fetch('http://localhost:8181/api/v1/getInfo',{
+      method : "post",
+				headers : {"Content-Type": "application/json"},
+				body : JSON.stringify({"num" : "1", "name": "이순신"} )
+			})
+			.then( response => response.json() )
+			.then( t => console.log(t) )
+  },[]);
 
-export default App;
+
+  return (
+    <div>
+      .....
+    </div>
+  )
+}
+export default App
